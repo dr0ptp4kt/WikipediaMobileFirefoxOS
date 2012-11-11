@@ -328,7 +328,7 @@ window.chrome = function() {
 		// This seems to successfully launch the native browser, and works
 		// both with the stock browser and Firefox as user's default browser
 		//document.location = url;
-		window.open(url);
+		window.open( url.replace( 'proxy.php?url=', '' ) );
 	}
 
 	return {
