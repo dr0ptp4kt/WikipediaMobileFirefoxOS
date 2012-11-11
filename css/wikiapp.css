@@ -438,7 +438,9 @@ button#search
 	opacity: 0;
 	position: absolute;
 	left: 1.5em;
+	top: 1.5em;
 	z-index: 2;
+	-webkit-appearance: none;
 }
 
 .item > .selectText {
