@@ -82,24 +82,10 @@ window.savedPages = function() {
 		var title = app.getCurrentTitle();
 		var url = app.getCurrentUrl();
 
-		console.log("url is " + url);
-		var savedPagesDB = new Lawnchair({name:"savedPagesDB"}, function() {
-			this.keys(function(records) {
-				if (records != null) {
-					if (records.length > MAX_LIMIT) {
-						// we've reached the max limit
-						// @todo this is probably not great, remove this :)
-						alert(mw.message("saved-pages-max-warning").plain());
-					}else{
-						savedPagesDB.save({key: app.curPage.getAPIUrl(), title: title, lang: app.curPage.lang, version: SAVED_PAGES_VERSION});
-						savedPages.doSave(options).done(function() {
-							d.resolve()
-						}).fail(function() {
-							d.reject();
-						});
-					}
-				}
-			});
+		var savedPagesDB = new Lawnchair({name:"savedPagesDB"}, function(savedPagesDB) {
+			
+			(savedPagesDB.keys().length >= MAX_LIMIT) ? alert(mw.message("saved-pages-max-warning").plain()) : savedPagesDB.save({key: url, title: title, lang: app.curPage.lang, version: SAVED_PAGES_VERSION});
+			
 		});
 
 		return d;
@@ -108,14 +94,16 @@ window.savedPages = function() {
 	function onSavedPageClick() {
 		var parent = $(this).parents(".listItemContainer");
 		var url = parent.data("page-url");
+		console.log(url)
 		var lang = parent.data("page-lang");
 		var title = parent.data("page-title");
 		var disabled = parent.data("page-disabled");
 		if(disabled) {
 			return false;
 		}
-		chrome.showContent();
-		app.loadCachedPage(url, title, lang);
+		//chrome.showContent();
+		//app.loadCachedPage(url, title, lang);
+		app.loadPage(title, lang);
 	}
 
 	function onSavedPageDelete() {
