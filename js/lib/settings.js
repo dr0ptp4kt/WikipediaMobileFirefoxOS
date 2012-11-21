@@ -44,6 +44,7 @@ window.appSettings = function() {
 
 		var currentContentLanguage = preferencesDB.get("language");
 		$("#contentLanguageSelector").val(currentContentLanguage).change(onContentLanguageChanged);
+		setSelectText( $('#contentLanguageSelector') );
 
 		/* Look up the human readable form of the languagecode */
 		$.each(locales, function(index, value) {
@@ -53,6 +54,8 @@ window.appSettings = function() {
 			}
 		});
 		$("#fontSizeSelector").val(preferencesDB.get("fontSize")).change(onFontSizeChanged);
+		setSelectText( $( '#fontSizeSelector' ) );
+
 		$("#aboutPageLabel").click(function () {
 			aboutPage();
 		});
@@ -66,7 +69,7 @@ window.appSettings = function() {
 		chrome.hideContent();
 		$('#settings').localize().show();
 		// WTFL: The following line of code is necessary to make the 'back' button
-		// work consistently on iOS. According to warnings by brion in index.html, 
+		// work consistently on iOS. According to warnings by brion in index.html,
 		// doing this line will break things in Android. Need to test before merge.
 		// Also, I've no clue why this fixes the back button not working, but it does
 		chrome.setupScrolling("#settings");
@@ -82,6 +85,19 @@ window.appSettings = function() {
 		var selectedFontSize = $(this).val();
 		app.setFontSize(selectedFontSize);
 		chrome.showContent();
+	}
+	// Adds a span containing the current select text to the dom.
+	// This is needed to mask the uglified FirefoxOS select element.
+	function setSelectText( $select ) {
+		$select.parent()
+			.append(
+				$( '<span />' )
+					.addClass( 'selectText' )
+					.text( $select.children( 'option:selected' ).text() )
+			).append(
+				$( '<br />' )
+					.css( 'clear', 'both' )
+			);
 	}
 
 	return {

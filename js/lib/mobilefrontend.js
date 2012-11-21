@@ -15,6 +15,5 @@ mw.mobileFrontend = MobileFrontend = (function() {
 		supportsPositionFixed: function() {
 			return false;
 		}
-	}
+	};
 })();
-

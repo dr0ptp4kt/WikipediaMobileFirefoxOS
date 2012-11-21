@@ -229,7 +229,7 @@ window.app = function() {
 	}
 
 	function titleForUrl(url) {
-		url = url.replace('/proxy.php?url=', '');
+		url = url.replace('proxy.php?url=', '');
 		var page = url.replace(/^https?:\/\/[^\/]+(\/wiki\/)?/, ''),
 			unescaped = decodeURIComponent(page),
 			title = unescaped.replace(/_/g, ' ');

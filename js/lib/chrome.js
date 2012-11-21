@@ -192,7 +192,7 @@ window.chrome = function() {
 	function isTwoColumnView() {
 		// should match the CSS media queries
 		// check for goodscroll is so we don't use it on Android 2.x tablets
-		return (document.width >= 640) && $('html').hasClass('goodscroll');
+		return ( $(document).width() >= 640 ) && $('html').hasClass('goodscroll');
 	}
 
 	function hideOverlays() {
@@ -328,7 +328,7 @@ window.chrome = function() {
 		// This seems to successfully launch the native browser, and works
 		// both with the stock browser and Firefox as user's default browser
 		//document.location = url;
-		window.open(url);
+		window.open( url.replace( 'proxy.php?url=', '' ) );
 	}
 
 	return {

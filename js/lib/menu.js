@@ -116,9 +116,9 @@ function popupMenu(items, callback, options) {
 		if (index === options.destructiveButtonIndex) {
 			$button.addClass('destructive');
 		}
-		if (index === options.cancelButtonIndex) {
-			$button.addClass('cancel');
-		}
+		//if (index === options.cancelButtonIndex) {
+		//	$button.addClass('cancel');
+		//}
 	});
 }
 
