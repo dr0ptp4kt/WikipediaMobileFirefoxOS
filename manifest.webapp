@@ -1,6 +1,6 @@
 {
   "version": "0.1",
-  "name": "WikipediaMobile",
+  "name": "Wikipedia",
   "description": "Wikipedia Mobile for Firefox OS",
   "launch_path": "/",
   "icons": {
