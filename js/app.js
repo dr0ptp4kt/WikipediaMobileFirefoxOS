@@ -31,10 +31,12 @@ define( 'app', function ( require ) {
 		require( [ 'mobilefrontend', 'propertiesFileReader', 'preferences', 'l10n-setup', 'page',
 	'templates', 'savedpages', 'chrome', 'wikiapp', 'app_history', 'search', 'geo',
 	'settings', 'langlinks', 'localFile', 'main' ], function ( $ ) {
-			require( [ 'lawnchair/adapters/webkit-sqlite','lawnchair/adapters/memory', 'menu',
-				'MobileFrontend/javascripts/toggle','MobileFrontend/javascripts/references' ], function( $ ) {
-					init();
-					chrome.initialize();
+	                require( [ 'firefox/platform' ], function( $ ) {
+        			require( [ 'lawnchair/adapters/webkit-sqlite','lawnchair/adapters/memory', 'menu',
+	        			'MobileFrontend/javascripts/toggle','MobileFrontend/javascripts/references' ], function( $ ) {
+		        			init();
+			        		chrome.initialize();
+                                });
 			});
 		} );
 	});
