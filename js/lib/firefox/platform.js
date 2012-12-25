@@ -20,8 +20,13 @@ if (window.MozActivity !== undefined) {
 // although we say 'right: 45px' it seems to fix us at a certain width, even though there's
 // no width specified. Arrrrrrghllllebarggle
 $( window ).resize( function() {
-	var $searchParam = $( '#searchParam' );
-	$searchParam.css( 'width', $( window ).width() - 90 );
+	var $searchParam = $( '#searchParam' ),
+		windowWidth = $( window ).width();
+	if (windowWidth < 640) {
+		$searchParam.css( 'width', (windowWidth - 90) + 'px' );
+	} else {
+		$searchParam.css( 'width', 'auto' );
+	}
 });
 $( function () {
 	$( window ).resize();
