@@ -15,3 +15,14 @@ if (window.MozActivity !== undefined) {
 		});
 	}
 }
+
+// Horrible hack for #searchParam 'right' CSS property not taking effect properly in Gecko
+// although we say 'right: 45px' it seems to fix us at a certain width, even though there's
+// no width specified. Arrrrrrghllllebarggle
+$( window ).resize( function() {
+	var $searchParam = $( '#searchParam' );
+	$searchParam.css( 'width', $( window ).width() - 90 );
+});
+$( function () {
+	$( window ).resize();
+} );
