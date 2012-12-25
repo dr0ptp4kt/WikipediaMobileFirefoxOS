@@ -1,3 +1,7 @@
+// Wikipedia API currently doesn't have CORS headers allowing offsite access.
+// For regular web permissions, we have to use jsonp instead of XHR.
+window.DATATYPE = 'jsonp';
+
 // Set up Firefox OS-specific activity stuff
 if (window.MozActivity !== undefined) {
 	/**
