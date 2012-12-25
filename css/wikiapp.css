@@ -354,15 +354,14 @@ button#search
 
 .titlebar {
 	display: -webkit-box;
-	display: -moz-box;
-	display: box;
 	background: #4f4f4f;
 	background: -webkit-gradient(linear, left top, left bottom, from(#5F5F5F), to(#4F4F4F));
 	background: -moz-linear-gradient(#5F5F5F 0%, #4F4F4F 100%);
 	background: -ms-linear-gradient(#5F5F5F 0%, #4F4F4F 100%);
 	padding: 5px;
 	height: 42px;
-	width: 100%;
+	left: 0;
+	right: 0;
 }
 
 .titlebar > div:first-child {
