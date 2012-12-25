@@ -38,8 +38,7 @@ window.search = function() {
 			action: 'query',
 			list: 'search',
 			srsearch: results[0],
-			srinfo: 'suggestion',
-			format: 'json'
+			srinfo: 'suggestion'
 		}).done(function(data) {
 			var suggestion_results = data;
 			var suggestion = getSuggestionFromSuggestionResults(suggestion_results);
@@ -112,7 +111,10 @@ window.search = function() {
 
 	function renderResults(results, didyoumean) {
 		var template = templates.getTemplate('search-results-template');
-		if(results.length > 0) {
+		// Warning: if we have 'warnings' results the output turns into an object
+		// so don't assume it's a pure array! We get a warning about "_" unknown
+		// parameter from using jQuery's JSONP interface.
+		if(typeof results[1] !== undefined) {
 			var searchParam = results[0];
 			var searchResults = results[1].map(function(title) {
 				return {

@@ -54,8 +54,8 @@
 	};
 
 	Page.requestFromTitle = function(title, lang) {
-		// Make sure changes to this are also propogated to getAPIUrl
-		return app.makeAPIRequest({
+		var d = $.Deferred();
+		app.makeAPIRequest({
 			action: 'mobileview',
 			page: title,
 			redirects: 'yes',
@@ -63,11 +63,12 @@
 			sections: 'all',
 			sectionprop: 'level|line',
 			noheadings: 'yes'
-		}, lang, {
-			dataFilter: function(data) {
-				return Page.fromRawJSON(title, JSON.parse(data), lang);
-			}
+		}, lang).done(function(data) {
+			d.resolve(Page.fromRawJSON(title, data, lang));
+		}).fail(function(data) {
+			d.reject(data);
 		});	
+		return d.promise();
 	};
 
 	Page.prototype.requestLangLinks = function() {

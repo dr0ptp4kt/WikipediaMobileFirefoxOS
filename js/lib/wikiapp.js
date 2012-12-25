@@ -143,16 +143,16 @@ window.app = function() {
 		return d;
 	}
 
-	function urlForTitle( title, lang, noProxy ) {
+	function urlForTitle( title, lang ) {
 		if(typeof lang === 'undefined') {
 			lang = preferencesDB.get("language");
 		}
-		return app.baseUrlForLanguage( lang, noProxy ) + "/wiki/" + encodeURIComponent(title.replace(/ /g, '_'));
+		return app.baseUrlForLanguage( lang ) + "/wiki/" + encodeURIComponent(title.replace(/ /g, '_'));
 	}
 
-	function baseUrlForLanguage( lang, noProxy ) {
+	function baseUrlForLanguage( lang ) {
 		var url = window.PROTOCOL + '://' + lang + '.' + PROJECTNAME + '.org';
-		return noProxy ? url : 'proxy.php?url=' + url;
+		return url;
 	}
 
 	function makeCanonicalUrl(lang, title) {
@@ -250,15 +250,19 @@ window.app = function() {
 		var url = app.baseUrlForLanguage(lang) + '/w/api.php';
 		var defaultOptions = {
 			url: url,
-			data: params,
+			data: params
+		};
+		if ( window.DATATYPE === 'jsonp' ) {
+			defaultOptions.dataType = 'jsonp';
+		} else {
 			// Making this 'text' and parsing the JSON ourselves makes things much easier
 			// Than making it as 'JSON' for pre-processing via dataFilter
 			// See https://forum.jquery.com/topic/datafilter-function-and-json-string-result-problems
-			dataType: 'text',
-			dataFilter: function(text) {
+			defaultOptions.dataType = 'text';
+			defaultOptions.dataFilter = function(text) {
 				return JSON.parse(text);
-			}
-		};
+			};
+		}
 		var options = $.extend(defaultOptions, extraOptions);
 		return $.ajax(options);
 	}
