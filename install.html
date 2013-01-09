@@ -17,7 +17,7 @@
 		<form id="install"><button>Install Wikipedia</button></form>
 		<script>
 			function install() {
-				var request = navigator.mozApps.install("http://208.80.153.133/manifest.webapp");
+				var request = navigator.mozApps.install("https://bits.wikimedia.org/WikipediaMobileFirefoxOS/manifest.webapp");
 				request.onerror = function() { alert("Something went wrong: " + this.error.message); }
 				return false;
 			}
