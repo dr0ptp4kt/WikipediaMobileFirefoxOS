@@ -1,12 +1,12 @@
 {
-  "version": "0.1",
+  "version": "0.2",
   "name": "Wikipedia",
   "description": "Wikipedia Mobile for Firefox OS",
-  "launch_path": "/",
+  "launch_path": "/WikipediaMobileFirefoxOS/",
   "icons": {
-    "16": "/image/W_launchicon_16_1101.png",
-    "48": "/image/W_launchicon_48_1101.png",
-    "128": "/image/W_launchicon_128_1101.png"
+    "16": "/WikipediaMobileFirefoxOS/image/W_launchicon_16_1101.png",
+    "48": "/WikipediaMobileFirefoxOS/image/W_launchicon_48_1101.png",
+    "128": "/WikipediaMobileFirefoxOS/image/W_launchicon_128_1101.png"
   },
   "developer": {
     "name": "Wikimedia Foundation",
