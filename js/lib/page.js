@@ -72,27 +72,29 @@
 	};
 
 	Page.prototype.requestLangLinks = function() {
+		var d = $.Deferred();
 		if(this.langLinks) {
-			var d = $.Deferred();
-			d.resolve(this.langLinks);
-			return d;
+			window.setTimeout(function() {
+				d.resolve(this.langLinks);
+			}, 0);
+			return d.promise();
 		}
 		var that = this;
-		return app.makeAPIRequest({
+		app.makeAPIRequest({
 			action: 'parse',
 			page: this.title,
 			prop: 'langlinks'
-		}, this.lang, {
-			dataFilter: function(text) {
-				var data = JSON.parse(text);
-				var langLinks = [];
-				$.each(data.parse.langlinks, function(i, langLink) {
-					langLinks.push({lang: langLink.lang, title: langLink['*']});
-				});
-				that.langLinks = langLinks;
-				return langLinks;
-			}
+		}, this.lang).done(function(data) {
+			var langLinks = [];
+			$.each(data.parse.langlinks, function(i, langLink) {
+				langLinks.push({lang: langLink.lang, title: langLink['*']});
+			});
+			that.langLinks = langLinks;
+			d.resolve(langLinks);
+		}).fail(function(xhr) {
+			d.reject(xhr);
 		});
+		return d.promise();
 	};
 
 	Page.prototype.getSectionHtml = function(id) {

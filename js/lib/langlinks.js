@@ -37,7 +37,7 @@ window.languageLinks = function() {
 				return;
 			}
 			chrome.hideSpinner();
-			chrome.popupErrorMessage(xhr);
+			chrome.popupErrorMessage("error");
 		});
 		chrome.setSpinningReq(req);
 	}
