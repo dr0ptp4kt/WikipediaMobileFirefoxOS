@@ -3,6 +3,7 @@
   "name": "Wikipedia",
   "description": "Wikipedia Mobile for Firefox OS",
   "launch_path": "/WikipediaMobileFirefoxOS/",
+  "appcache_path": "/WikipediaMobileFirefoxOS/app.appcache",
   "icons": {
     "16": "/WikipediaMobileFirefoxOS/image/W_launchicon_16_1101.png",
     "48": "/WikipediaMobileFirefoxOS/image/W_launchicon_48_1101.png",
