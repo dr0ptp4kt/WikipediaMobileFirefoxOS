@@ -44,7 +44,6 @@ js/app.js
 js/lib/2.5.3-crypto-md5.js
 js/lib/app_history.js
 js/lib/chrome.js
-js/lib/firefox
 js/lib/firefox/platform.js
 js/lib/geo.js
 js/lib/hogan.min.js
