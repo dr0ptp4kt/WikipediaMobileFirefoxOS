@@ -125,13 +125,16 @@ function popupMenu(items, callback, options) {
 function showPageActions(origin) {
 	popupMenu([
 		//mw.msg('menu-savePage'), // disabled pending data model port
+		mw.msg('menu-open-browser'),
 		mw.msg('menu-cancel')
 	], function(value, index) {
 		if (index == 0) {
+			var url = $('base').attr('href'); // haaaaack
+			chrome.openExternalLink(url);
 			//savedPages.saveCurrentPage();
 		}
 	}, {
-		cancelButtonIndex: 0, //5,
+		cancelButtonIndex: 1, //5,
 		origin: origin
 	});
 }
