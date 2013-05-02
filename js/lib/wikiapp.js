@@ -244,6 +244,16 @@ window.app = function() {
 	}
 
 	function makeAPIRequest(params, lang, extraOptions) {
+		if (!navigator.onLine) {
+			console.log("makeAPIRequest not online");
+			// This won't help if we go offline during a request, unfortunately
+			var deferred = $.Deferred();
+			window.setTimeout(function() {
+				console.log('offline auto-reject...');
+				deferred.reject({}, "Device is offine");
+			}, 0);
+			return deferred.promise();
+		}
 		params = params || {};
 		params.format = 'json'; // Force JSON
 		lang = lang || preferencesDB.get('language');
