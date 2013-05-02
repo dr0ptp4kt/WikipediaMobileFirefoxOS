@@ -124,14 +124,14 @@ function popupMenu(items, callback, options) {
 
 function showPageActions(origin) {
 	popupMenu([
-		mw.msg('menu-savePage'),
+		//mw.msg('menu-savePage'), // disabled pending data model port
 		mw.msg('menu-cancel')
 	], function(value, index) {
 		if (index == 0) {
-			savedPages.saveCurrentPage();
+			//savedPages.saveCurrentPage();
 		}
 	}, {
-		cancelButtonIndex: 5,
+		cancelButtonIndex: 0, //5,
 		origin: origin
 	});
 }
@@ -139,19 +139,19 @@ function showPageActions(origin) {
 function showListActions(origin) {
 	popupMenu([
 		mw.msg('menu-nearby'),
-		mw.msg('menu-savedPages'),
-		mw.msg('menu-history'),
+		//mw.msg('menu-savedPages'), // disabled pending data model port
+		//mw.msg('menu-history'), // disabled pending data model port
 		mw.msg('menu-cancel')
 	], function(val, index) {
 		if (index == 0) {
 			geo.showNearbyArticles();
 		} else if (index == 1) {
-			savedPages.showSavedPages();
+			//savedPages.showSavedPages();
 		} else if (index == 2) {
-			appHistory.showHistory();
+			//appHistory.showHistory();
 		}
 	}, {
-		cancelButtonIndex: 3,
+		cancelButtonIndex: 1, //3,
 		origin: origin
 	});
 }
