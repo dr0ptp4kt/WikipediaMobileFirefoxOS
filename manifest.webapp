@@ -17,6 +17,8 @@
   "locales": {},
   "default_locale": "en",
   "permissions": {
-    "geolocation": {}
+    "geolocation": {
+    	"description": "Required for 'nearby articles' screen"
+    }
   }
 }
