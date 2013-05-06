@@ -74,8 +74,9 @@
 	Page.prototype.requestLangLinks = function() {
 		var d = $.Deferred();
 		if(this.langLinks) {
+			var self = this;
 			window.setTimeout(function() {
-				d.resolve(this.langLinks);
+				d.resolve(self.langLinks);
 			}, 0);
 			return d.promise();
 		}
