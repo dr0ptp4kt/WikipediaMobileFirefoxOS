@@ -178,6 +178,9 @@ window.app = function() {
 		var d = $.Deferred();
 		var options = $.extend({cache: false, updateHistory: true}, options || {});
 		var url = app.urlForTitle(title, lang);
+		if(typeof lang === "undefined") {
+			lang = preferencesDB.get("language");
+		}
 
 		if(title === "") {
 			return app.loadMainPage(lang);
@@ -224,7 +227,6 @@ window.app = function() {
 	function languageForUrl(url) {
 		// Use the least significant part of the hostname as language
 		// So en.wikipedia.org would be 'en', and so would en.wiktionary.org
-		return 'en';
 		return url.match(/^https?:\/\/([^.]+)./)[1];
 	}
 
