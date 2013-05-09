@@ -14,7 +14,7 @@ function setPageActionsState(state) {
 }
 
 function getAboutVersionString() {
-	return "3.2";
+	return "3.2.1";
 }
 
 var menu_items = [
