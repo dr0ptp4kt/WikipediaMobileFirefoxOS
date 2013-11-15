@@ -10,6 +10,7 @@ window.languageLinks = function() {
 	}
 
 	function showLangLinks(page) {
+        $('#read-in').fadeOut(42).fadeIn(42);
 		chrome.showSpinner();
 		var req = page.requestLangLinks().done(function(langLinks) {
 			var template = templates.getTemplate("language-links-template");

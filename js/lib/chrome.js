@@ -218,7 +218,10 @@ window.chrome = function() {
 		$('#settings').hide();
 		$('#about-page-overlay').hide();
 		$('#langlinks').hide();
+        /* Hiding until robust geolocation approach solved
+        TODO: reinstate
 		$('#nearby-overlay').hide();
+		*/
 		$('html').removeClass('overlay-open');
 	}
 
@@ -261,6 +264,7 @@ window.chrome = function() {
 		if ($('#content').css('display') == "block") {
 			// We're showing the main view
 			currentHistoryIndex -= 1;
+            $('#go-back').fadeOut(42).fadeIn(42);
 			chrome.showSpinner();
 			// Jumping through history is unsafe with the current urlCache system
 			// sometimes we get loaded without the fixups, and everything esplodes.
@@ -290,6 +294,7 @@ window.chrome = function() {
 	}
 
 	function goForward() {
+        $('#go-forward').fadeOut(42).fadeIn(42);
 		chrome.showSpinner();
 		console.log(pageHistory.length);
 		console.log(currentHistoryIndex);
