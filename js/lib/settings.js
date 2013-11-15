@@ -65,6 +65,11 @@ window.appSettings = function() {
 			chrome.openExternalLink(url);
 			return false;
 		});
+        $(".feedbackexternallink").click(function() {
+            var link = $(this).attr('data-link');
+            chrome.openExternalLink(url);
+            return false;
+        });
 		chrome.hideOverlays();
 		chrome.hideContent();
 		$('#settings').localize().show();

@@ -218,7 +218,10 @@ window.chrome = function() {
 		$('#settings').hide();
 		$('#about-page-overlay').hide();
 		$('#langlinks').hide();
+        /* Hiding until robust geolocation approach solved
+        TODO: reinstate
 		$('#nearby-overlay').hide();
+		*/
 		$('html').removeClass('overlay-open');
 	}
 

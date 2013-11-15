@@ -38,12 +38,15 @@ var menu_items = [
 			showPageActions(this);
 		}
 	},
+    /* Hiding until robust geolocation approach solved
+     TODO: reinstate
 	{
 		id: 'list-actions',
 		action: function() {
 			showListActions(this);
 		}
 	},
+	*/
 	{
 		id: 'view-settings',
 		action: appSettings.showSettings

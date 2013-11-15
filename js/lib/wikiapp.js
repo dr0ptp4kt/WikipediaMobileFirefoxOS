@@ -80,7 +80,10 @@ window.app = function() {
 		chrome.scrollTo("#content", 0);
 		appHistory.addCurrentPage();
 		chrome.toggleMoveActions();
+		/*Hiding until robust geolocation approach solved
+         TODO: reinstate
 		geo.addShowNearbyLinks();
+		 */
 		$("#page-footer").show();
 		chrome.showContent();
 		chrome.hideSpinner();

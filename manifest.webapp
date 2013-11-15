@@ -1,5 +1,5 @@
 {
-  "version": "0.2",
+  "version": "0.3",
   "name": "Wikipedia",
   "description": "Wikipedia Mobile for Firefox OS",
   "launch_path": "/WikipediaMobileFirefoxOS/",
@@ -16,9 +16,4 @@
   "installs_allowed_from": ["*"],
   "locales": {},
   "default_locale": "en",
-  "permissions": {
-    "geolocation": {
-    	"description": "Required for 'nearby articles' screen"
-    }
-  }
 }

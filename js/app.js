@@ -29,7 +29,7 @@ define( 'app', function ( require ) {
 	'mediawiki', '2.5.3-crypto-md5', 'urlcache', 'jquery.localize',
 	'leaflet/leaflet' ], function ( $ ) {
 		require( [ 'mobilefrontend', 'propertiesFileReader', 'preferences', 'l10n-setup', 'page',
-	'templates', 'savedpages', 'chrome', 'wikiapp', 'app_history', 'search', 'geo',
+	'templates', 'savedpages', 'chrome', 'wikiapp', 'app_history', 'search', /* Hiding until robust geolocation approach solved. TODO: reinstate... 'geo', */
 	'settings', 'langlinks', 'localFile', 'main' ], function ( $ ) {
 	                require( [ 'firefox/platform' ], function( $ ) {
         			require( [ 'lawnchair/adapters/webkit-sqlite','lawnchair/adapters/memory', 'menu',

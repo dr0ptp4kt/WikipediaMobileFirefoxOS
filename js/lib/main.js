@@ -6,7 +6,7 @@ window.SAVED_PAGES_VERSION = 1;
 window.PROTOCOL = 'https';
 window.DATATYPE = 'json';
 window.PROJECTNAME = 'wikipedia';
-window.LICENSEPAGE = "Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License";
+window.LICENSEPAGE = "Wikipedia:Text of Creative Commons Attribution-ShareAlike 3.0 Unported License";
 
 (function() {
 	var url_parts = location.href.split('/');
