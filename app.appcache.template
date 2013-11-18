@@ -153,7 +153,7 @@ js/lib/MobileFrontend/stylesheets/webkit.css
 js/lib/MobileFrontend/stylesheets/wii.css
 js/lib/mobilefrontend.js
 js/lib/modernizr-2.5.3.min.js
-js/lib/noclickdelay.js
+# FIXME: this was causing the share button to break in FFOS js/lib/noclickdelay.js
 js/lib/page.js
 js/lib/preferences.js
 js/lib/propertiesFileReader.js

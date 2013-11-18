@@ -25,7 +25,7 @@ require(['https://marketplace.cdn.mozilla.net/mozmarket.js'],
 // When you write javascript in separate files, list them as
 // dependencies along with jquery
 define( 'app', function ( require ) {
-	require( [ 'jquery', 'jquery', 'lawnchair/Lawnchair', 'hogan.min', 'noclickdelay',
+	require( [ 'jquery', 'jquery', 'lawnchair/Lawnchair', 'hogan.min', /* caused issue in FFOS 'noclickdelay', */
 	'mediawiki', '2.5.3-crypto-md5', 'urlcache', 'jquery.localize',
 	'leaflet/leaflet' ], function ( $ ) {
 		require( [ 'mobilefrontend', 'propertiesFileReader', 'preferences', 'l10n-setup', 'page',

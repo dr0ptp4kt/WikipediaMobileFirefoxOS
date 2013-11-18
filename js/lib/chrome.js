@@ -264,7 +264,7 @@ window.chrome = function() {
 		if ($('#content').css('display') == "block") {
 			// We're showing the main view
 			currentHistoryIndex -= 1;
-            $('#go-back').fadeOut(42).fadeIn(42);
+            $('#go-back').toggle('puff');
 			chrome.showSpinner();
 			// Jumping through history is unsafe with the current urlCache system
 			// sometimes we get loaded without the fixups, and everything esplodes.
@@ -294,7 +294,7 @@ window.chrome = function() {
 	}
 
 	function goForward() {
-        $('#go-forward').fadeOut(42).fadeIn(42);
+        $('#go-forward').toggle('puff');
 		chrome.showSpinner();
 		console.log(pageHistory.length);
 		console.log(currentHistoryIndex);
@@ -368,7 +368,9 @@ window.chrome = function() {
 		hideContent: hideContent,
 		addPlatformInitializer: addPlatformInitializer,
 		popupErrorMessage: popupErrorMessage,
+		/* FIXME: dead code?
 		setupFastClick: setupFastClick,
+		 */
 		isTwoColumnView: isTwoColumnView,
 		openExternalLink: openExternalLink,
 		toggleMoveActions: toggleMoveActions,

@@ -76,7 +76,13 @@ function updateMenuState() {
 		$button.append('<span>')
 			.appendTo($menu);
 	});
-	new NoClickDelay($("#menu")[0]);
+	/* FIXME: This was causing the glow effect to be hidden in FFOS,
+	 and also directed taps on the Share button to the fly
+	 up Cancel button, making the user think nothing happened.
+	 The glow effect has been reinstated, but in case the user
+	 misses it, there are effects for the bottom menu bar beyond glow.
+	 new NoClickDelay($("#menu")[0]);
+	 */
 };
 
 var __hideMenu = null;

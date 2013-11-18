@@ -3,7 +3,7 @@ window.appSettings = function() {
 	var locales = [];
 
 	function showSettings(callback) {
-        $('#view-settings').fadeOut(42 ).fadeIn(42);
+        $('#view-settings').fadeOut(126).fadeIn(126);
 		chrome.showSpinner();
 		var requestUrl = ROOT_URL + "sitematrix.json";
 
@@ -67,8 +67,8 @@ window.appSettings = function() {
 			return false;
 		});
         $(".feedbackexternallink").click(function() {
-            var link = $(this).attr('data-link');
-            chrome.openExternalLink(url);
+            var feedbackUrl = $(this).attr('data-link');
+            chrome.openExternalLink(feedbackUrl);
             return false;
         });
 		chrome.hideOverlays();
